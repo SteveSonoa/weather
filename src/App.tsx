@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import "./App.css";
 import Admin from "./Admin";
 import Report from "./Report";
+import Branding from "./Branding";
 import { Days, VideoOptions, Weather, WeatherIcons } from "./types";
+import "./App.css";
 
 const App = () => {
     const days: Days[] = [Days.W, Days.TH, Days.F, Days.SA, Days.SU, Days.M];
@@ -40,10 +41,13 @@ const App = () => {
                 </video>
             )}
             {showReport ? (
-                <Report
-                    goBack={() => setShowReport(false)}
-                    weather={sixDayWeather}
-                />
+                <>
+                    <Branding />
+                    <Report
+                        goBack={() => setShowReport(false)}
+                        weather={sixDayWeather}
+                    />
+                </>
             ) : (
                 <Admin
                     setVideo={setBackgroundVideo}
