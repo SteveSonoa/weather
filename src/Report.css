@@ -1,0 +1,39 @@
+.report-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50vw;
+    height: 100vh;
+    float: right;
+    align-items: center;
+}
+
+.report-area .weather-day {
+    background: rgba(255, 255, 255, 0.75);
+    padding: 15px 0;
+    flex: 0 0 calc(33.3333% - 50px);
+    box-sizing: border-box;
+    margin: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.report-area .weather-day .day {
+    /* color: #000; */
+    font-weight: 500;
+    font-size: 32px;
+}
+
+.report-area .weather-day .icon img {
+    width: 75%;
+}
+
+.report-area .weather-day .temp {
+    color: #000;
+    /* text-shadow: 1px 0 #000, 0 1px #000, -1px 0 #000, 0 -1px #000; */
+    font-size: 64px;
+}
+
+.report-area .weather-day .low {
+    border-top: 1px solid #000;
+}

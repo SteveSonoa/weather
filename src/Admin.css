@@ -1,0 +1,70 @@
+.admin-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-area .video-selection {
+    height: 100px;
+}
+
+.admin-area .label-text {
+    font-size: 32px;
+    color: white;
+    font-weight: 900;
+    text-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000, 0 -1px #000;
+    margin-top: 25px;
+}
+
+.admin-area .label-text.inline {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.admin-area .labels-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-area button {
+    padding: 10px 25px;
+    width: fit-content;
+    margin: 10px 0;
+    border-radius: 20px;
+}
+
+.admin-area input,
+.admin-area option,
+.admin-area select {
+    box-sizing: content-box;
+    padding: 5px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.admin-area input.temperature {
+    width: 3ch;
+    text-align: center;
+}
+
+.admin-area label {
+    margin: 0 10px;
+}
+
+.admin-area .weather-day {
+    margin: 5px 0;
+}
+
+.admin-area option {
+    text-transform: capitalize;
+}
+
+.admin-area a {
+    color: #afeef0;
+    font-size: 18px;
+    text-decoration: none;
+    text-shadow: none;
+    font-weight: 100;
+}
