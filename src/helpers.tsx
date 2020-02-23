@@ -1,5 +1,8 @@
 import { VideoOptions, WeatherIcons } from "./types";
 
+export const rng = (min: number, max: number) =>
+    Math.floor(Math.random() * (max - min) + min);
+
 export const videoOptions = [VideoOptions.byLights];
 
 export const weatherOptions = [

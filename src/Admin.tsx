@@ -1,25 +1,38 @@
 import React from "react";
 import "./Admin.css";
-import { Weather } from "./types";
-import { videoOptions, weatherOptions, convertIconToText } from "./helpers";
+import { Days, Weather } from "./types";
+import {
+    videoOptions,
+    weatherOptions,
+    convertIconToText,
+    rng
+} from "./helpers";
 
 type Props = {
+    dateRange: string;
+    setDateRange: Function;
     setVideo: (event: any) => void;
     start: () => void;
     weather: Weather[];
     setWeather: (weather: Weather[]) => void;
 };
 
-const Admin = ({ setVideo, start, weather, setWeather }: Props) => {
+const Admin = ({
+    dateRange,
+    setDateRange,
+    setVideo,
+    start,
+    weather,
+    setWeather
+}: Props) => {
     const updateWeatherWeek = (e: any, i: number) => {
-        const { name, value } = e.target;
         const newWeatherWeek: Array<Weather> = [];
 
         weather.forEach((day: Weather, j: number) => {
             if (i === j) {
                 const newDay = {
                     ...weather[j],
-                    [name]: value
+                    ...handleChange(e)
                 };
                 newWeatherWeek.push(newDay);
             } else {
@@ -27,6 +40,54 @@ const Admin = ({ setVideo, start, weather, setWeather }: Props) => {
             }
         });
         setWeather(newWeatherWeek);
+    };
+
+    const updateDateRange = (e: any) => {
+        setDateRange(e.target.value);
+    };
+
+    const handleChange = (e: any) => {
+        const { name, value } = e.target;
+        return { [name]: value };
+    };
+
+    const setTempWeatherDay = () => ({
+        high: rng(70, 110).toString(),
+        low: rng(40, 70).toString(),
+        icon:
+            weatherOptions[
+                Math.floor(Math.random() * (weatherOptions.length - 1))
+            ]
+    });
+
+    const setDefaultValues = () => {
+        setWeather([
+            {
+                ...setTempWeatherDay(),
+                day: Days.W
+            },
+            {
+                ...setTempWeatherDay(),
+                day: Days.TH
+            },
+            {
+                ...setTempWeatherDay(),
+                day: Days.F
+            },
+            {
+                ...setTempWeatherDay(),
+                day: Days.SA
+            },
+            {
+                ...setTempWeatherDay(),
+                day: Days.SU
+            },
+            {
+                ...setTempWeatherDay(),
+                day: Days.M
+            }
+        ]);
+        setDateRange("September 26 - October 2, 2020");
     };
 
     return (
@@ -58,6 +119,14 @@ const Admin = ({ setVideo, start, weather, setWeather }: Props) => {
                     Open Weather.com
                 </a>
             </div>
+            <label className="label-text inline">
+                Date Range:{" "}
+                <input
+                    name="dates"
+                    value={dateRange}
+                    onChange={e => updateDateRange(e)}
+                />
+            </label>
             {weather.map((weatherDay, i) => (
                 <div className="weather-day" key={i}>
                     <div className="label-text">{weatherDay.day}</div>
@@ -102,6 +171,7 @@ const Admin = ({ setVideo, start, weather, setWeather }: Props) => {
                     </div>
                 </div>
             ))}
+            <button onClick={setDefaultValues}>Set Defaults</button>
             <button onClick={start}>Start</button>
         </div>
     );

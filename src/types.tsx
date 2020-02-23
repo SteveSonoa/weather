@@ -1,11 +1,11 @@
 export enum Days {
-    SU = "Sunday",
-    M = "Monday",
-    T = "Tuesday",
-    W = "Wednesday",
-    TH = "Thursday",
-    F = "Friday",
-    SA = "Saturday"
+    SU = "SUN",
+    M = "MON",
+    T = "TUE",
+    W = "WED",
+    TH = "THU",
+    F = "FRI",
+    SA = "SAT"
 }
 
 export enum VideoOptions {

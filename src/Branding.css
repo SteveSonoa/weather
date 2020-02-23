@@ -2,6 +2,6 @@ img#logo {
     position: fixed;
     top: 0;
     left: 0;
-    max-width: calc(50vw - 50px);
+    max-width: calc(35vw - 30px);
     margin: 15px;
 }

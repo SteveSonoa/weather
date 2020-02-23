@@ -1,39 +1,80 @@
+.date-range,
+.report-area {
+    width: 65vw;
+    float: right;
+}
+
+.date-range {
+    text-align: center;
+    color: #fff;
+    font-size: 80px;
+    font-weight: 900;
+}
+
 .report-area {
     display: flex;
     flex-wrap: wrap;
-    width: 50vw;
     height: 100vh;
-    float: right;
-    align-items: center;
+    justify-content: flex-end;
 }
 
 .report-area .weather-day {
-    background: rgba(255, 255, 255, 0.75);
-    padding: 15px 0;
-    flex: 0 0 calc(33.3333% - 50px);
+    background: linear-gradient(
+        rgba(200, 255, 220, 0.75),
+        rgba(80, 110, 220, 0.75)
+    );
+    border: 5px solid #fff;
+    flex: 0 0 calc(150px);
     box-sizing: border-box;
     margin: 25px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    height: 60vh;
 }
 
 .report-area .weather-day .day {
-    /* color: #000; */
     font-weight: 500;
-    font-size: 32px;
+    font-size: 60px;
+    background: #fff;
+    color: #000;
+}
+
+.report-area .weather-day .icon {
+    flex-grow: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.report-area .weather-day .icon::after {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 120px;
+    background: rgba(0, 20, 100, 0.15);
+    top: 10%;
+    left: 30%;
+    z-index: -1;
 }
 
 .report-area .weather-day .icon img {
-    width: 75%;
+    width: 100%;
+    z-index: 2;
 }
 
 .report-area .weather-day .temp {
     color: #000;
-    /* text-shadow: 1px 0 #000, 0 1px #000, -1px 0 #000, 0 -1px #000; */
-    font-size: 64px;
+    text-shadow: 2px 0 #fff, 0 2px #fff, -2px 0 #fff, 0 -2px #fff;
+    font-size: 80px;
+    font-weight: 900;
+    justify-self: flex-end;
+    padding: 10px 0;
 }
 
 .report-area .weather-day .low {
-    border-top: 1px solid #000;
+    border-top: 3px solid #fff;
+    text-shadow: none;
+    font-weight: 400;
+    font-size: 64px;
+    color: #fff;
 }

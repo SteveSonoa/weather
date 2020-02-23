@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Admin from "./Admin";
 import Report from "./Report";
 import Branding from "./Branding";
+import BackgroundVideo from "./BackgroundVideo";
 import { Days, VideoOptions, Weather, WeatherIcons } from "./types";
 import "./App.css";
 
@@ -32,24 +33,24 @@ const App = () => {
     );
     const [showReport, setShowReport] = useState(false);
     const [sixDayWeather, setSixDayWeather] = useState(initialWeatherWeek(6));
+    const [dateRange, setDateRange] = useState(" , 2020");
 
     return (
         <div className="App">
-            {backgroundVideo && (
-                <video id="background-video" autoPlay muted loop>
-                    <source src={`/${backgroundVideo}`} type="video/mp4" />
-                </video>
-            )}
+            {backgroundVideo && <BackgroundVideo video={backgroundVideo} />}
             {showReport ? (
                 <>
                     <Branding />
                     <Report
+                        dateRange={dateRange}
                         goBack={() => setShowReport(false)}
                         weather={sixDayWeather}
                     />
                 </>
             ) : (
                 <Admin
+                    dateRange={dateRange}
+                    setDateRange={setDateRange}
                     setVideo={setBackgroundVideo}
                     start={() => setShowReport(true)}
                     weather={sixDayWeather}
